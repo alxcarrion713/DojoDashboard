@@ -1,0 +1,17 @@
+<div class="wrapper">
+<h1>New Student</h1>
+<form action="/dojos/:dojo_id/students/create" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <p>First Name:<input type="text" name="first_name"></input></p>
+    <p>Last Name:<input type="text" name="last_name"></input></p>
+    <p>Email Address:<input type="email" name="email"></input></p>
+    <p>Dojo:
+    <select name="location">
+    <%= options_from_collection_for_select(@all_dojos, :id, :city, params[:dojo_id].to_i)%>
+    </select>
+    </p>
+    <button type="submit">Create</button>
+</form>
+<p><a href="/dojos/back">Home  |</a><a href="/dojos/show/<%=:id%>">Test Location</a></p>
+<!-- end of wrapper -->
+</div>

@@ -1,0 +1,23 @@
+<div class="wrapper">
+<h1>Editing <%=@student.first_name%> <%=@student.last_name%> </h1>
+<form action="/dojos/<%=@dojo.id%>/students/update/<%=@student.id%>" method="post">
+<!-- authenticity token for form itself -->
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<!-- hidden input for patch to work -->
+<input type="hidden" name="_method" value="patch">
+<!-- student info -->
+<p>First Name:<input type="text" name="first_name" value="<%=@student.first_name%>"</input></p>
+<p>Last Name:<input type="text" name="last_name" value="<%=@student.last_name%>"</input></p>
+<p>Email:<input type="text" name="email" value="<%=@student.email%>"</input></p>
+<p>Dojo:
+<select name="location">
+<%= options_from_collection_for_select(@all_dojos, :id, :city) %>
+</select>
+</p>
+<button type="submit">Update</button>
+<!-- end of form -->
+</form>
+<br>
+<a href="/dojos/home"> Home | </a>
+<a href="/dojos/<%=@dojo.id%>/students/<%=@student.id%>"><%=@student.first_name%></a>
+</div>

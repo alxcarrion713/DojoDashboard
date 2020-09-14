@@ -1,0 +1,29 @@
+<!-- <h1>Dojos#index</h1> -->
+<!-- <p>Find me in app/views/dojos/index.html.erb</p> -->
+<div class="wrapper">
+<h1> Listing <%=@count %> Dojos Below.  Go Nuts!!! </h1>
+
+<table>
+    <thead style="background-color: green; padding: 7px;">
+        <th>Dojo Branch</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>   
+        <th>Action</th>   
+    </thead>
+    <% @dojo.each do |d| %>
+    <tbody>
+        <td><%= d.branch%> </td>
+        <td><%= d.street %></td>
+        <td><%= d.city %></td>
+        <td><%= d.state %></td>
+        <td><a href="/dojos/show/<%=d.id%>">Show |</a>
+            <a href="/dojos/edit/<%=d.id%>"> Edit |</a>
+            <a href="/dojos/destroy/<%=d.id%>">Destroy | </a>
+        </td>
+    </tbody>
+    <% end %>
+</table>
+<br>
+<a href="/dojos/new">New Dojo</a>    
+</div>

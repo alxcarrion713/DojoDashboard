@@ -1,0 +1,15 @@
+<div class="wrapper">
+<h1>Edit <%=@dojo.branch%> </h1>
+<form action="/dojos/update/<%=@dojo.id%>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="_method" value="patch">
+<p>Branch:<input type="text" name="branch" value="<%=@dojo.branch%>"></input></p>
+<p>Street:<input type="text" name="street" value="<%=@dojo.street%>"></input></p>
+<p>City:<input type="text" name="city" value="<%=@dojo.city%>"></input></p>
+<p>State:<input type="text" name="state" value="<%=@dojo.state%>"></input></p>
+<button type="submit">Update</button>
+</form>
+<br>
+<a href="/dojos/home"> Home | </a>
+<a href="/dojos/show/<%=@dojo.id%>"> Show</a>
+</div>
